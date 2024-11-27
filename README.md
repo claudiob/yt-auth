@@ -7,12 +7,12 @@ their Google-based email address.
 With Yt::Auth, it is easy to limit access to your app to a few users without
 the need for them to create a username and password.
 
-The **source code** is available on [GitHub](https://github.com/fullscreen/yt-auth) and the **documentation** on [RubyDoc](http://www.rubydoc.info/gems/yt-auth/frames).
+The **source code** is available on [GitHub](https://github.com/claudiob/yt-auth) and the **documentation** on [RubyDoc](http://www.rubydoc.info/gems/yt-auth/frames).
 
-[![Build Status](http://img.shields.io/travis/Fullscreen/yt-auth/master.svg)](https://travis-ci.org/Fullscreen/yt-auth)
-[![Coverage Status](http://img.shields.io/coveralls/Fullscreen/yt-auth/master.svg)](https://coveralls.io/r/Fullscreen/yt-auth)
-[![Dependency Status](http://img.shields.io/gemnasium/Fullscreen/yt-auth.svg)](https://gemnasium.com/Fullscreen/yt-auth)
-[![Code Climate](http://img.shields.io/codeclimate/github/Fullscreen/yt-auth.svg)](https://codeclimate.com/github/Fullscreen/yt-auth)
+[![Build Status](http://img.shields.io/travis/claudiob/yt-auth/master.svg)](https://travis-ci.org/claudiob/yt-auth)
+[![Coverage Status](http://img.shields.io/coveralls/claudiob/yt-auth/master.svg)](https://coveralls.io/r/claudiob/yt-auth)
+[![Dependency Status](http://img.shields.io/gemnasium/claudiob/yt-auth.svg)](https://gemnasium.com/claudiob/yt-auth)
+[![Code Climate](http://img.shields.io/codeclimate/github/claudiob/yt-auth.svg)](https://codeclimate.com/github/claudiob/yt-auth)
 [![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://www.rubydoc.info/gems/yt-auth/frames)
 [![Gem Version](http://img.shields.io/gem/v/yt-auth.svg)](http://rubygems.org/gems/yt-auth)
 
@@ -111,6 +111,9 @@ How to contribute
 
 Contribute to the code by forking the project, adding the missing code,
 writing the appropriate tests and submitting a pull request.
+
+To run the tests correctly, set up the environment variables `YT_ACCOUNT_CLIENT_ID`
+and `YT_ACCOUNT_CLIENT_SECRET` with the credentials of an existing Google OAuth app.
 
 In order for a PR to be approved, all the tests need to pass and all the public
 methods need to be documented and listed in the guides. Remember:

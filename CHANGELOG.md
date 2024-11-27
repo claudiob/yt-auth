@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.0.0  - 2024-11-26
+
+Released major version. No breaking changes.
+
 ## 0.3.1  - 2017-08-26
 
 * [ENHANCEMENT] Add placeholder method to be notified when token is refreshed.
