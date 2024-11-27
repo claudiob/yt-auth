@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Google Authentication Ruby client}
   spec.description   = %q{Yt::Auth makes it easy to authenticate users to any
     web application by means of their Google account.}
-  spec.homepage      = 'https://github.com/fullscreen/yt-auth'
+  spec.homepage      = 'https://github.com/claudiob/yt-auth'
   spec.license       = 'MIT'
 
   spec.required_ruby_version = '>= 2.2.2'
@@ -27,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'yt-support', '>= 0.1.3'
   spec.add_dependency 'jwt', '>= 1.5.6'
 
-  spec.add_development_dependency 'bundler', '~> 1.14'
-  spec.add_development_dependency 'rspec', '~> 3.5'
-  spec.add_development_dependency 'rake', '~> 12.0'
-  spec.add_development_dependency 'coveralls', '~> 0.8.20'
-  spec.add_development_dependency 'pry-nav', '~> 0.2.4'
-  spec.add_development_dependency 'yard', '~> 0.9.8'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'debug'
+  spec.add_development_dependency 'rspec'#, '~> 3.5'
+  spec.add_development_dependency 'rake'#, '~> 12.0'
+  spec.add_development_dependency 'coveralls'#, '~> 0.8.20'
+  spec.add_development_dependency 'yard'#, '~> 0.9.8'
 end
