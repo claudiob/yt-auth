@@ -6,6 +6,14 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.1.0  - 2024-12-10
+
+* [FEATURE] Support mocking
+
+- Use `Yt.configuration.mock_auth_error` to mock an error response
+- Use `Yt.configuration.mock_auth_email` to mock authenticating as an email
+- If the value of `mock_auth_email` is `invalid-email`, raise a Yt::HTTPError
+
 ## 1.0.0  - 2024-11-26
 
 Released major version. No breaking changes.

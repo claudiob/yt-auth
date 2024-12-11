@@ -33,10 +33,16 @@ module Yt
     # @option options [Array<String>] :scopes The list of scopes that users
     #   are requested to authorize.
     def self.url_for(options = {})
-      host = 'accounts.google.com'
-      path = '/o/oauth2/auth'
-      query = URI.encode_www_form url_params(options)
-      URI::HTTPS.build(host: host, path: path, query: query).to_s
+      if Yt.configuration.mock_auth_error
+        options[:redirect_uri] + '?error=' + Yt.configuration.mock_auth_error
+      elsif Yt.configuration.mock_auth_email
+        options[:redirect_uri] + '?code=mock-email'
+      else
+        host = 'accounts.google.com'
+        path = '/o/oauth2/auth'
+        query = URI.encode_www_form url_params(options)
+        URI::HTTPS.build(host: host, path: path, query: query).to_s
+      end
     end
 
     # @param [Hash] options the options to initialize an instance of Yt::Auth.
@@ -57,7 +63,15 @@ module Yt
 
     # @return [String] the email of an authenticated Google account.
     def email
-      profile['email']
+      if Yt.configuration.mock_auth_email
+        if Yt.configuration.mock_auth_email.eql? 'invalid-email'
+          raise Yt::HTTPError, 'Malformed auth code'
+        else
+          Yt.configuration.mock_auth_email
+        end
+      else
+        profile['email']
+      end
     end
 
     # @return [String] the access token of an authenticated Google account.
@@ -113,7 +127,7 @@ module Yt
         params[:method] = :post
         params[:request_format] = :form
         params[:body] = @tokens_body
-        params[:error_message] = ->(body) { error_message_for body }
+        params[:error_message] = ->(code) { error_message_for code }
       end
     end
 
@@ -125,7 +139,7 @@ module Yt
       end
     end
 
-    def error_message_for(body)
+    def error_message_for(code)
       key = @tokens_body[:grant_type].to_s.tr '_', ' '
       JSON(body)['error_description'] || "Invalid #{key}."
     end
